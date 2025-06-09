@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class UI_Instance : MonoBehaviour
+public class ItemSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Inspectorで指定するプレハブ
+    public GameObject itemPrefab;
 
-    // Update is called once per frame
-    void Update()
+    // 生成位置の基準（任意）
+    public Transform spawnPoint;
+
+    // ボタンから呼び出す関数
+    public void SpawnItem()
     {
-        
+        if (itemPrefab != null)
+        {
+            
+            Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("ItemPrefab が設定されていません！");
+        }
     }
 }
