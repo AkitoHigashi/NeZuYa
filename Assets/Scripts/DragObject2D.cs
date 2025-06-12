@@ -19,10 +19,11 @@ public class DragWithMouse2D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Collider2D hit = Physics2D.OverlapPoint(mousePos);//マウスのポインターの位置にコライダーがあるのか確認
-            if (hit != null && hit.gameObject == this.gameObject)//
+            if (hit != null && hit.gameObject == this.gameObject)//コライダーを見つけた上、そのオブジェクトがこのオブジェクトだったら
             {
                 isDragging = true;
                 offset = transform.position - mousePos;
+                //コライダーとマウスポインターの距離を取得し、ポインターに吸われずそのままオブジェクトを移動できるようにする
             }
         }
 
