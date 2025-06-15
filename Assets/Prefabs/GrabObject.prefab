@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1812523385942207226}
   - component: {fileID: 2132590297650809877}
-  - component: {fileID: 355164874971749711}
   - component: {fileID: 3420963389269761677}
   - component: {fileID: 1895838004887443828}
-  m_Layer: 0
+  - component: {fileID: 96275654587113547}
+  m_Layer: 7
   m_Name: GrabObject
   m_TagString: Towel
   m_Icon: {fileID: 0}
@@ -90,18 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &355164874971749711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241371883777172697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b11e274d44eeac43adb4042e105458d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3420963389269761677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +163,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &96275654587113547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241371883777172697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8872b0b30666511418e5abd2cd85306d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item:
+    serializedVersion: 2
+    m_Bits: 128

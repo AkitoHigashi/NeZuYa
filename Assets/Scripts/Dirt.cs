@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Dirt : MonoBehaviour
 {
-    public int rubsToDisappear = 5; // Á‚¦‚é‚Ü‚Å‚Ì‚±‚·‚è‰ñ”
+    [SerializeField]int rubsToDisappear = 10; // Á‚¦‚é‚Ü‚Å‚Ì‚±‚·‚è‰ñ”
     private int currentRubs = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
