@@ -7,7 +7,7 @@ public class Dirt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Towel"))
+        if (other.CompareTag("Brush"))
         {
             currentRubs++;
             Debug.Log($"‚±‚·‚ç‚ê‚½I¡‚Ì‰ñ”: {currentRubs}");
