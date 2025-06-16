@@ -64,7 +64,7 @@ public class DragWithMouse2D : MonoBehaviour
          Debug.Log("ドラッグできないよ");
         }
         
-        transform.localPosition = collision.transform.localPosition;
+        transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
     }
 
     private void LockChanged()
