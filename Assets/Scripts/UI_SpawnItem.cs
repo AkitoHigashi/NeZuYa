@@ -4,33 +4,30 @@ using UnityEngine;
 public class UI_SpawnItem : MonoBehaviour
 {
 
-    [SerializeField] GameObject _SoapPrefab;
-    [SerializeField] GameObject _brushPrefab;
-    [SerializeField] GameObject _towelPrefab;
-    [SerializeField] GameObject _showerPrefab;
+    [SerializeField] private GameObject _SoapPrefab;
+    [SerializeField] private GameObject _brushPrefab;
+    [SerializeField] private GameObject _towelPrefab;
+    [SerializeField] private GameObject _showerPrefab;
 
 
-    [SerializeField] private Transform _SpawnPoint;
+    [SerializeField] private Transform[] _SpawnPoint;
 
-    GameObject _Item;
-    GameObject _SoapItem;
-    GameObject _brushItem;
-    GameObject _towelItem;
-    GameObject _showerItem;
+    private GameObject _Item;
+    private GameObject _SoapItem;
+    private GameObject _brushItem;
+    private GameObject _towelItem;
+    private GameObject _showerItem;
 
     public void BrushSpawn()
     {
-        ItemDestory();
         if (_brushPrefab != null)
         {
-            if (_Item == null)//Spawnitemが或る時
+            if (_Item is not null)//itemが生成されている時
             {
-                _Item = Instantiate(_brushPrefab, _SpawnPoint.position, Quaternion.identity);
+                ItemDestory();
+                Debug.Log("既に生成されてたオブジェクトを消しました");
             }
-            else
-            {
-                Debug.Log("既に生成されています");
-            }
+            _Item = Instantiate(_brushPrefab, _SpawnPoint[0].position, Quaternion.identity);
         }
         else
         {
@@ -39,17 +36,14 @@ public class UI_SpawnItem : MonoBehaviour
     }
     public void SoapSpawn()
     {
-        ItemDestory();
         if (_SoapPrefab != null)
         {
-            if (_Item == null)
+            if (_Item is not null)//itemが生成されている時
             {
-                _Item = Instantiate(_SoapPrefab, _SpawnPoint.position, Quaternion.identity);
+                ItemDestory();
+                Debug.Log("既に生成されてたオブジェクトを消しました");
             }
-            else
-            {
-                Debug.Log("既に生成されています");
-            }
+            _Item = Instantiate(_SoapPrefab, _SpawnPoint[1].position, Quaternion.identity);
         }
         else
         {
@@ -61,14 +55,12 @@ public class UI_SpawnItem : MonoBehaviour
         ItemDestory();
         if (_towelPrefab != null)
         {
-            if (_Item == null)
+            if (_Item is not null)//itemが生成されている時
             {
-                _Item = Instantiate(_towelPrefab, _SpawnPoint.position, Quaternion.identity);
+                ItemDestory();
+                Debug.Log("既に生成されてたオブジェクトを消しました");
             }
-            else
-            {
-                Debug.Log("既に生成されています");
-            }
+            _Item = Instantiate(_towelPrefab, _SpawnPoint[2].position, Quaternion.identity);
         }
         else
         {
@@ -81,14 +73,12 @@ public class UI_SpawnItem : MonoBehaviour
         ItemDestory();
         if (_showerPrefab != null)
         {
-            if (_Item == null)
+            if (_Item is not null)//itemが生成されている時
             {
-                _Item = Instantiate(_showerPrefab, _SpawnPoint.position, Quaternion.identity);
+                ItemDestory();
+                Debug.Log("既に生成されてたオブジェクトを消しました");
             }
-            else
-            {
-                Debug.Log("既に生成されています");
-            }
+            _Item = Instantiate(_showerPrefab, _SpawnPoint[3].position, Quaternion.identity);
         }
         else
         {
@@ -98,7 +88,7 @@ public class UI_SpawnItem : MonoBehaviour
     }
     private void ItemDestory()
     {
-        if(_Item != null)
+        if (_Item != null)
         {
             Destroy(_Item);
         }

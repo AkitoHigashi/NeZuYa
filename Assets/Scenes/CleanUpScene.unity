@@ -1000,7 +1000,6 @@ GameObject:
   - component: {fileID: 664451102}
   - component: {fileID: 664451101}
   - component: {fileID: 664451100}
-  - component: {fileID: 664451103}
   m_Layer: 5
   m_Name: 'Button (Towel) '
   m_TagString: Untagged
@@ -1072,7 +1071,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664451103}
+      - m_Target: {fileID: 687902686}
         m_TargetAssemblyTypeName: UI_SpawnItem, Assembly-CSharp
         m_MethodName: TowelSpawn
         m_Mode: 1
@@ -1122,23 +1121,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664451098}
   m_CullTransparentMesh: 1
---- !u!114 &664451103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664451098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cea4e8255bc1ee46af10d860ff57cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SoapPrefab: {fileID: 6192710247128096216, guid: 963ba967fb604eb4eaa0c0b7b2fb8770, type: 3}
-  _brushPrefab: {fileID: 6933747167151686930, guid: 7c39acf53f8e2c643aab8e6243400656, type: 3}
-  _towelPrefab: {fileID: 2410668214282774832, guid: 628ae04ee287e7c4587f40361bf5502d, type: 3}
-  _showerPrefab: {fileID: 3308910526685987942, guid: 7a4ebc2adffc2e649a4f1d7135c8d158, type: 3}
-  _SpawnPoint: {fileID: 453932772}
 --- !u!1 &667163009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1235,6 @@ GameObject:
   - component: {fileID: 670220296}
   - component: {fileID: 670220295}
   - component: {fileID: 670220294}
-  - component: {fileID: 670220297}
   m_Layer: 5
   m_Name: 'Button (Soap) '
   m_TagString: Untagged
@@ -1325,7 +1306,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 670220297}
+      - m_Target: {fileID: 687902686}
         m_TargetAssemblyTypeName: UI_SpawnItem, Assembly-CSharp
         m_MethodName: SoapSpawn
         m_Mode: 1
@@ -1375,23 +1356,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670220292}
   m_CullTransparentMesh: 1
---- !u!114 &670220297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670220292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cea4e8255bc1ee46af10d860ff57cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SoapPrefab: {fileID: 6192710247128096216, guid: 963ba967fb604eb4eaa0c0b7b2fb8770, type: 3}
-  _brushPrefab: {fileID: 6933747167151686930, guid: 7c39acf53f8e2c643aab8e6243400656, type: 3}
-  _towelPrefab: {fileID: 2410668214282774832, guid: 628ae04ee287e7c4587f40361bf5502d, type: 3}
-  _showerPrefab: {fileID: 3308910526685987942, guid: 7a4ebc2adffc2e649a4f1d7135c8d158, type: 3}
-  _SpawnPoint: {fileID: 1672434722}
 --- !u!1 &684842146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1435,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684842146}
   m_CullTransparentMesh: 1
+--- !u!1 &687902685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687902687}
+  - component: {fileID: 687902686}
+  m_Layer: 0
+  m_Name: ItemManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &687902686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687902685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cea4e8255bc1ee46af10d860ff57cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SoapPrefab: {fileID: 6192710247128096216, guid: 963ba967fb604eb4eaa0c0b7b2fb8770, type: 3}
+  _brushPrefab: {fileID: 6933747167151686930, guid: 7c39acf53f8e2c643aab8e6243400656, type: 3}
+  _towelPrefab: {fileID: 2410668214282774832, guid: 628ae04ee287e7c4587f40361bf5502d, type: 3}
+  _showerPrefab: {fileID: 3308910526685987942, guid: 7a4ebc2adffc2e649a4f1d7135c8d158, type: 3}
+  _SpawnPoint:
+  - {fileID: 3762243509323985692}
+  - {fileID: 1672434722}
+  - {fileID: 453932772}
+  - {fileID: 1770416057}
+--- !u!4 &687902687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687902685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &758784812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2777,6 @@ GameObject:
   - component: {fileID: 1629561938}
   - component: {fileID: 1629561937}
   - component: {fileID: 1629561936}
-  - component: {fileID: 1629561939}
   m_Layer: 5
   m_Name: 'Button (Shower) '
   m_TagString: Untagged
@@ -2832,7 +2848,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629561939}
+      - m_Target: {fileID: 687902686}
         m_TargetAssemblyTypeName: UI_SpawnItem, Assembly-CSharp
         m_MethodName: ShowerSpawn
         m_Mode: 1
@@ -2882,23 +2898,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629561934}
   m_CullTransparentMesh: 1
---- !u!114 &1629561939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629561934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cea4e8255bc1ee46af10d860ff57cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SoapPrefab: {fileID: 6192710247128096216, guid: 963ba967fb604eb4eaa0c0b7b2fb8770, type: 3}
-  _brushPrefab: {fileID: 6933747167151686930, guid: 7c39acf53f8e2c643aab8e6243400656, type: 3}
-  _towelPrefab: {fileID: 2410668214282774832, guid: 628ae04ee287e7c4587f40361bf5502d, type: 3}
-  _showerPrefab: {fileID: 3308910526685987942, guid: 7a4ebc2adffc2e649a4f1d7135c8d158, type: 3}
-  _SpawnPoint: {fileID: 1770416057}
 --- !u!1 &1672434721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,7 +3358,6 @@ GameObject:
   - component: {fileID: 1862454177}
   - component: {fileID: 1862454176}
   - component: {fileID: 1862454175}
-  - component: {fileID: 1862454178}
   m_Layer: 5
   m_Name: Button (Brush)
   m_TagString: Untagged
@@ -3431,7 +3429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1862454178}
+      - m_Target: {fileID: 687902686}
         m_TargetAssemblyTypeName: UI_SpawnItem, Assembly-CSharp
         m_MethodName: BrushSpawn
         m_Mode: 1
@@ -3481,23 +3479,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862454173}
   m_CullTransparentMesh: 1
---- !u!114 &1862454178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862454173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cea4e8255bc1ee46af10d860ff57cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SoapPrefab: {fileID: 6192710247128096216, guid: 963ba967fb604eb4eaa0c0b7b2fb8770, type: 3}
-  _brushPrefab: {fileID: 6933747167151686930, guid: 7c39acf53f8e2c643aab8e6243400656, type: 3}
-  _towelPrefab: {fileID: 2410668214282774832, guid: 628ae04ee287e7c4587f40361bf5502d, type: 3}
-  _showerPrefab: {fileID: 3308910526685987942, guid: 7a4ebc2adffc2e649a4f1d7135c8d158, type: 3}
-  _SpawnPoint: {fileID: 3762243509323985692}
 --- !u!1 &2035544555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3628,3 +3609,4 @@ SceneRoots:
   - {fileID: 2035544556}
   - {fileID: 550510589}
   - {fileID: 610378523}
+  - {fileID: 687902687}
