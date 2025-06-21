@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db55338593d549a42bd4948150582bbb, type: 3}
-  m_Name: New S
+  m_Name: CharaPosi
   m_EditorClassIdentifier: 
   EndPlaypos: {x: 0, y: 0}

@@ -10,6 +10,9 @@ TagManager:
   - Nezumi
   - Brush
   - Shower
+  - Soap
+  - BBpos
+  - Bubble
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Towel
   - Brush
   - Shower
-  - 
+  - Soap
   - 
   - 
   - 

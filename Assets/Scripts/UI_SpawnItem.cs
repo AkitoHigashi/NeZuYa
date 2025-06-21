@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class UI_SpawnItem : MonoBehaviour
 {
+
+    [SerializeField] GameObject _SoapPrefab;
     [SerializeField] GameObject _brushPrefab;
     [SerializeField] GameObject _towelPrefab;
     [SerializeField] GameObject _showerPrefab;
@@ -11,13 +13,14 @@ public class UI_SpawnItem : MonoBehaviour
     [SerializeField] private Transform _SpawnPoint;
 
     GameObject _Item;
+    GameObject _SoapItem;
     GameObject _brushItem;
     GameObject _towelItem;
     GameObject _showerItem;
 
     public void BrushSpawn()
     {
-        //ItemDestory
+        ItemDestory();
         if (_brushPrefab != null)
         {
             if (_Item == null)//Spawnitemが或る時
@@ -34,8 +37,28 @@ public class UI_SpawnItem : MonoBehaviour
             Debug.LogWarning("アイテムプレハブが設定されてない");
         }
     }
-    public void TowelItem()
+    public void SoapSpawn()
     {
+        ItemDestory();
+        if (_SoapPrefab != null)
+        {
+            if (_Item == null)
+            {
+                _Item = Instantiate(_SoapPrefab, _SpawnPoint.position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.Log("既に生成されています");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("アイテムプレハブが設定されていません");
+        }
+    }
+    public void TowelSpawn()
+    {
+        ItemDestory();
         if (_towelPrefab != null)
         {
             if (_Item == null)
@@ -53,8 +76,9 @@ public class UI_SpawnItem : MonoBehaviour
         }
 
     }
-    public void ShowerItem()
+    public void ShowerSpawn()
     {
+        ItemDestory();
         if (_showerPrefab != null)
         {
             if (_Item == null)
@@ -70,6 +94,13 @@ public class UI_SpawnItem : MonoBehaviour
         {
             Debug.LogWarning("アイテムプレハブが設定さていない");
         }
-        
+
+    }
+    private void ItemDestory()
+    {
+        if(_Item != null)
+        {
+            Destroy(_Item);
+        }
     }
 }
