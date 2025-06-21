@@ -1,20 +1,31 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WashArea : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private DragWithMouse2D DragWithMouse2D;
+    private Love_meter love_Meter;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
         
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.transform.localPosition = this.transform.localPosition;
+        if (other.CompareTag("Nezumi"))//ネズミのタグのオブジェクトだった時
+        {
+            love_Meter = other.GetComponentInChildren<Love_meter>();//そのネズミのラブメータースクリプトをげっちゅ
+            Invoke(nameof(CallmethodLove), 5f);//5秒遅らせる。
+
+        }
+
     }
+    void CallmethodLove()
+    {
+        love_Meter.AddLove(0.2f);//メーターを２増やす。
+        Debug.Log("2増えたよ");
+    }
+
+
 }

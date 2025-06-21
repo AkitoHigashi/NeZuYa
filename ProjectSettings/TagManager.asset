@@ -9,6 +9,7 @@ TagManager:
   - Mouse
   - Nezumi
   - Brush
+  - Shower
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Nezumi
   - Towel
   - Brush
-  - 
+  - Shower
   - 
   - 
   - 

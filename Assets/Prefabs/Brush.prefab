@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2440131215305404299}
   - component: {fileID: 5272003749849028729}
   m_Layer: 8
-  m_Name: GrabObject
+  m_Name: Brush
   m_TagString: Brush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

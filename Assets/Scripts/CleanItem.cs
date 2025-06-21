@@ -42,7 +42,7 @@ public class CleanItem : MonoBehaviour
             if (isDragging)
             {
                 transform.position = mousePos + offset;
-                Debug.Log("アイテムドラッグ中");
+                //Debug.Log("アイテムドラッグ中");
             }
         }
     }

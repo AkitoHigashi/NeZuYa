@@ -24,11 +24,11 @@ public class Love_meter : MonoBehaviour
     }
     private void Start()
     {
-        SetGauge(0f);
+        SetGauge(0f);//スタート同時にゲージを0にする。
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))//デバック用のアドラブ
         {
             AddLove(debugAddLoveRate);
         }

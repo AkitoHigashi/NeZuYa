@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class SlideTabUI_Do : MonoBehaviour
+public class UI_SlideTab_Do : MonoBehaviour
 {
     private bool isOpen = false;
     [SerializeField] float openmovespeed = 1f;
@@ -25,7 +25,7 @@ public class SlideTabUI_Do : MonoBehaviour
         }
         else
         {
-            transform.DOLocalMove(new Vector2(1320f, 0), openmovespeed);
+            transform.DOLocalMove(new Vector2(1236f, 0), openmovespeed);
             isOpen = false;
         }
         
