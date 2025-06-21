@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 4516223623017234918}
   - component: {fileID: 3758137211222326234}
   - component: {fileID: 3446352800467789055}
+  - component: {fileID: 6871703984713104916}
   m_Layer: 6
   m_Name: Nezumi_01
   m_TagString: Nezumi
@@ -288,6 +289,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.5357143, y: 2.5214286}
   m_Direction: 0
+--- !u!114 &6871703984713104916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955681215474580982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7f2f0a0ad22db4084b26bcb23eed81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentstate: 0
 --- !u!1 &2855138107821455257
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +557,7 @@ GameObject:
   - component: {fileID: 1936323930503992081}
   - component: {fileID: 4989901236018777935}
   m_Layer: 0
-  m_Name: fukidasi_shower
+  m_Name: Fukidashi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

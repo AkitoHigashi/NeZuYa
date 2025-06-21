@@ -6,6 +6,7 @@ public class DragWithMouse2D : MonoBehaviour
     private Vector3 offset;
     private Camera cam;
     [SerializeField] LayerMask _catch= 0;//レイヤーから選択　この場合ネズミ
+    StateManeger StateManeger;
 
 
     public bool isLocked = false;
@@ -13,6 +14,7 @@ public class DragWithMouse2D : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        StateManeger = GetComponent<StateManeger>();
     }
 
     void Update()

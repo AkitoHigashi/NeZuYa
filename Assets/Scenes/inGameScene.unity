@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84819834c27371a408c0b58cb81b16e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bath: {fileID: 21300000, guid: c909c3f329d2fe04087bc3312d0cfd41, type: 3}
 --- !u!1 &284627211
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +995,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 753083006727951613, guid: 37bd1c98bc1cbb14f910f4d2c97812d2, type: 3}
+      propertyPath: m_Name
+      value: Fukidasi
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1050,6 +1055,10 @@ PrefabInstance:
     - target: {fileID: 1880394148011027010, guid: 571e54363680e0b4e8a3f2d940d1a8a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076715349279780394, guid: 571e54363680e0b4e8a3f2d940d1a8a8, type: 3}
+      propertyPath: m_Name
+      value: Fukidasi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

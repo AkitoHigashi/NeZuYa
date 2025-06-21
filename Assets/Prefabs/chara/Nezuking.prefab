@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 708206877271720453}
   - component: {fileID: 9150060979621881105}
   - component: {fileID: 8253126902167281230}
+  - component: {fileID: 2974311666604145889}
   m_Layer: 6
   m_Name: Nezuking
   m_TagString: Nezumi
@@ -186,6 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetS: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
+--- !u!114 &2974311666604145889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627687600977086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7f2f0a0ad22db4084b26bcb23eed81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentstate: 0
 --- !u!1 &753083006727951613
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +211,7 @@ GameObject:
   - component: {fileID: 363311594080228683}
   - component: {fileID: 6513386221420545295}
   m_Layer: 0
-  m_Name: fukidasi_shower
+  m_Name: Fukidasi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753083006727951613}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
