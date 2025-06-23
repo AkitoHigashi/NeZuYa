@@ -5,7 +5,7 @@ public class DragWithMouse2D : MonoBehaviour
     private bool isDragging = false;
     private Vector3 offset;
     private Camera cam;
-    [SerializeField] LayerMask _catch= 0;//レイヤーから選択　この場合ネズミ
+    [SerializeField] LayerMask _catch = 0;//レイヤーから選択　この場合ネズミ
     StateManeger StateManeger;
 
 
@@ -30,7 +30,7 @@ public class DragWithMouse2D : MonoBehaviour
             // マウスを押した瞬間
             if (Input.GetMouseButtonDown(0))
             {
-                Collider2D hit = Physics2D.OverlapPoint(mousePos,_catch);
+                Collider2D hit = Physics2D.OverlapPoint(mousePos, _catch);
                 //マウスのポインターの位置にコライダーがあるのか確認し、レイヤーがこの場合ネズミなら取得
                 if (hit != null && hit.gameObject == this.gameObject)//コライダーを見つけた上、そのオブジェクトがこのオブジェクトだったら
                 {
@@ -57,18 +57,19 @@ public class DragWithMouse2D : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDragging == true)//ドラッグできるのをできないようにする。
+        
+        if (collision.gameObject.CompareTag("WashArea") && StateManeger._currentstate == StateManeger.IngameState.StayWash)
+        //WashAreaのタグであり、現在のステータスがStayWashだった時。
         {
-            isDragging = false;
-         Debug.Log("ドラッグできないよ");
-        }
-        if (collision.gameObject.CompareTag("WashArea")&& StateManeger._currentstate == StateManeger.IngameState.StayWash)
-            //WashAreaのタグであり、現在のステータスがStayWashだった時。
-        {
-        isLocked = true;
-        Invoke(nameof(LockChanged), 5f);
-        Debug.Log("ロック開始");
-        transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
+            if (isDragging == true)//ドラッグできるのをできないようにする。
+            {
+                isDragging = false;
+                Debug.Log("ドラッグできないよ");
+            }
+            isLocked = true;
+            Invoke(nameof(LockChanged), 5f);
+            Debug.Log("ロック開始");
+            transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
         }
     }
 
