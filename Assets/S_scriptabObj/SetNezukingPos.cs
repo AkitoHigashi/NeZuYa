@@ -12,7 +12,7 @@ public class SetNezukingPos : MonoBehaviour
         //指定したオブジェクトのシーンの最終位置を記録しこのオブジェジェクトの位置に上書き
     }
 
-    public void SavePositionNezuking()
+    private void OnDisable()
     {
         Nezukingpos = this.transform.position;
         CharaPosition.EndNezukingPos = Nezukingpos;

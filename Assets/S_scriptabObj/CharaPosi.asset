@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95c78d2754007343962818cb3cb13dd, type: 3}
   m_Name: CharaPosi
   m_EditorClassIdentifier: 
-  EndNezumiPos: {x: -5, y: 0}
-  EndNezukingPos: {x: -5, y: 3}
-  hasSavedPosition: 0
+  EndNezumiPos: {x: -6.1311855, y: -2.4892063}
+  EndNezukingPos: {x: -6.016754, y: 0.7603364}
+  hasSavedPosition: 1

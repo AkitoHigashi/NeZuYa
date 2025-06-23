@@ -15,7 +15,7 @@ public class SetNezumiPos : MonoBehaviour
         }
     }
 
-    public void SavePositionNezumi()
+    private void OnDisable()
     {
         Nezumipos = this.transform.position;
         _PositoinDate.EndNezumiPos = Nezumipos;
