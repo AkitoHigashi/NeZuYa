@@ -22,13 +22,25 @@ public class StateManeger : MonoBehaviour
     {
         if (_anim != null)
         {
-            if (_currentstate == IngameState.Wash)
+            if (_currentstate == IngameState.StayWash)
+            {
+                
+            }
+            else if (_currentstate == IngameState.Wash)
             {
                 _anim.SetBool("inShower", true);
             }
             else if (_currentstate == IngameState.StayBath)
             {
-                _anim.SetBool("inShower",false);
+                _anim.SetBool("inShower", false);
+            }
+            else if(_currentstate == IngameState.Bath)
+            {
+                _anim.SetBool("inBath", true);
+            }
+            else if(_currentstate == IngameState.StayClean)
+            {
+                _anim.SetBool("inBath",false);
             }
         }
         else

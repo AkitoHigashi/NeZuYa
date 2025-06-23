@@ -57,9 +57,22 @@ public class DragWithMouse2D : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.CompareTag("WashArea") && StateManeger._currentstate == StateManeger.IngameState.StayWash)
         //WashAreaのタグであり、現在のステータスがStayWashだった時。
+        {
+            if (isDragging == true)//ドラッグできるのをできないようにする。
+            {
+                isDragging = false;
+                Debug.Log("ドラッグできないよ");
+            }
+            isLocked = true;
+            Invoke(nameof(LockChanged), 5f);
+            Debug.Log("ロック開始");
+            transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
+        }
+        if (collision.gameObject.CompareTag("BathArea") && StateManeger._currentstate == StateManeger.IngameState.StayBath)
+        //BathAreaのタグであり、現在のステータスがStayBathだった時。
         {
             if (isDragging == true)//ドラッグできるのをできないようにする。
             {
