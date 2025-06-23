@@ -2,20 +2,24 @@ using UnityEngine;
 
 public class SetNezumiPos : MonoBehaviour
 {
-    [SerializeField] S GetS;
+    [SerializeField] CharaPosition _PositoinDate;
 
     private Vector2 Nezumipos;
 
     private void Start()
     {
-        this.transform.position = GetS.EndNezumiPos;
+        if (_PositoinDate.hasSavedPosition == true)//ポジションが記録されていれば実行
+        {
+        this.transform.position = _PositoinDate.EndNezumiPos;
         //指定したオブジェクトのシーンの最終位置を記録しこのオブジェジェクトの位置に上書き
+        }
     }
 
-    private void OnDisable()
+    public void SavePositionNezumi()
     {
         Nezumipos = this.transform.position;
-        GetS.EndNezumiPos = Nezumipos;
-        //このオブジェクトの位置を常にスクリプタブルに送る。
+        _PositoinDate.EndNezumiPos = Nezumipos;
+        _PositoinDate.hasSavedPosition = true;//ポジションをセーブした事を記録
+        //このオブジェクトの最終位置を常にスクリプタブルに送る。
     }
 }

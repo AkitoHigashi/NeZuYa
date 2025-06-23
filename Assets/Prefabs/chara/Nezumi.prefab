@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3446352800467789055}
   - component: {fileID: 6871703984713104916}
   m_Layer: 6
-  m_Name: Nezumi_01
+  m_Name: Nezumi
   m_TagString: Nezumi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: -8502632902251068094, guid: dfa3655b48ccc46439afc73031c700db, type: 3}
+  m_Sprite: {fileID: -8502632902251068094, guid: 34b40a65ecbd7b444baa1d6141e74bac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0da4141a66e3904683366f6ba797882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetS: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
+  _PositoinDate: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
 --- !u!70 &3446352800467789055
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

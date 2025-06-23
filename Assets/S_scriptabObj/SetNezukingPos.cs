@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class SetNezukingPos : MonoBehaviour
 {
-    [SerializeField] S GetS;
+    [SerializeField] CharaPosition CharaPosition;
 
     private Vector2 Nezukingpos;
 
     private void Start()
     {
-        this.transform.position = GetS.EndNezukingPos;
+        this.transform.position = CharaPosition.EndNezukingPos;
         //指定したオブジェクトのシーンの最終位置を記録しこのオブジェジェクトの位置に上書き
     }
 
-    private void OnDisable()
+    public void SavePositionNezuking()
     {
         Nezukingpos = this.transform.position;
-        GetS.EndNezukingPos = Nezukingpos;
+        CharaPosition.EndNezukingPos = Nezukingpos;
         //このオブジェクトの位置を常にスクリプタブルに送る。
     }
 }

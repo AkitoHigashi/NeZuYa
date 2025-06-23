@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2316141adbe4b4a8ab673cc4050651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetS: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
+  CharaPosition: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
 --- !u!114 &2974311666604145889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 363311594080228683}
   - component: {fileID: 6513386221420545295}
   m_Layer: 0
-  m_Name: Fukidasi
+  m_Name: Fukidashi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

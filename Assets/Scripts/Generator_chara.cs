@@ -16,6 +16,7 @@ public class Generator_chara : MonoBehaviour
     void SpawnChara()
     {
         Instantiate(_chara[0], this.gameObject.transform.position, Quaternion.identity);
+        Instantiate(_chara[1], this.gameObject.transform.position, Quaternion.identity);
     }
     IEnumerator InstChara()
     {
@@ -23,7 +24,7 @@ public class Generator_chara : MonoBehaviour
         {
             SpawnChara();
             Debug.Log("ƒlƒYƒ~“ü“X");
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(30f);
 
 
         }

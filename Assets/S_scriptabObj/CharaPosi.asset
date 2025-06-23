@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db55338593d549a42bd4948150582bbb, type: 3}
+  m_Script: {fileID: 11500000, guid: f95c78d2754007343962818cb3cb13dd, type: 3}
   m_Name: CharaPosi
   m_EditorClassIdentifier: 
-  EndPlaypos: {x: 0, y: 0}
+  EndNezumiPos: {x: -5, y: 0}
+  EndNezukingPos: {x: -5, y: 3}
+  hasSavedPosition: 0
