@@ -26,20 +26,6 @@ public class WashArea : MonoBehaviour
                 _state._currentstate = StateManeger.IngameState.Wash;//ステータスをWashに変更
             }
         }
-        /*StateManeger = other.GetComponent<StateManeger>();//otherのstatemaneを取得
-        if (StateManeger._currentstate == StateManeger.IngameState.StayWash && other.CompareTag("Nezumi"))
-        //ぶつかったオブジェクトのステータスがStayWashであり、ネズミのタグのオブジェクトだった時
-        {
-           
-            Transform Fukisashi = other.transform.Find("Fukidashi");//otherの子オブジェクトのFukidasiをみつける
-            _SR = Fukisashi.GetComponent<SpriteRenderer>();
-            love_Meter = other.GetComponentInChildren<Love_meter>();//そのネズミのラブメータースクリプトをげっちゅ
-            Invoke(nameof(CallmethodLove),  5f);//5秒遅らせる。
-            Invoke(nameof(WashChangeState), 5f);
-            StateManeger._currentstate = StateManeger.IngameState.Wash;//ステータスをWashに変更
-
-        }*/
-
     }
     private IEnumerator WashProcess(GameObject target, StateManeger state)
     {
