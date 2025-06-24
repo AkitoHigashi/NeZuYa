@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9150060979621881105}
   - component: {fileID: 8253126902167281230}
   - component: {fileID: 2974311666604145889}
+  - component: {fileID: 4197752881292365444}
   m_Layer: 6
   m_Name: Nezuking
   m_TagString: Nezumi
@@ -200,6 +201,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentstate: 0
+--- !u!95 &4197752881292365444
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627687600977086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 853c4be7e0b808843ac6c6535f8fd935, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &753083006727951613
 GameObject:
   m_ObjectHideFlags: 0
