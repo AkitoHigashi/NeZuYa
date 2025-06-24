@@ -5,19 +5,28 @@ public class Area_Wash : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private DragWithMouse2D DragWithMouse2D;
-    private Love_meter love_Meter;
-    private StateManeger _StateManeger;
+    //private Love_meter love_Meter;
+    //private StateManeger _StateManeger;
     private SpriteRenderer _SR;
+    private BoxCollider2D _boxCol2D;
+
     [SerializeField] private Sprite bath;
     [SerializeField] private float WashTime = 5f;
 
 
     void Start()
     {
+        _boxCol2D = GetComponent<BoxCollider2D>();
 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (_boxCol2D != null)
+        {
+            _boxCol2D.isTrigger = false;//トリガーとオフ
+            Debug.Log("WashArea入れないよ！！");
+        }
 
         if (other.CompareTag("Nezumi"))
         {
@@ -49,16 +58,11 @@ public class Area_Wash : MonoBehaviour
             }
         }
 
-        love_Meter = target.GetComponentInChildren<Love_meter>();//そのネズミのラブメータースクリプトをげっちゅ
-        if (love_Meter != null)
-        {
-            love_Meter.AddLove(0.2f);
-            Debug.Log($"{target.name} のラブが2増えたよ！");
-        }
         state._currentstate = StateManeger.IngameState.StayBath;//5秒後ステータスをStayBathに変更
-
+        _boxCol2D.isTrigger = true;//トリガーをオン
+        Debug.Log("WashAreaに入れます！");
     }
-    void CallmethodLove()
+    /*void CallmethodLove()
     {
         love_Meter.AddLove(0.2f);//メーターを２増やす。
         Debug.Log("2増えたよ");
@@ -76,6 +80,6 @@ public class Area_Wash : MonoBehaviour
         }
         _StateManeger._currentstate = StateManeger.IngameState.StayBath;
 
-    }
+    }*/
 
 }

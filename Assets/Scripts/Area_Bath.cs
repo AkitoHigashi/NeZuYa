@@ -1,47 +1,64 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR;
+using static UnityEngine.GraphicsBuffer;
 
 public class Area_Bath : MonoBehaviour
 {
+    [SerializeField] private float BathTime = 10f;
+    [Header("清掃要求の吹き出し")]
+    [SerializeField] private Sprite clean;
+    
     private DragWithMouse2D DragWithMouse2D;
     private StateManeger StateManeger;
     private SpriteRenderer _SR;
-    [SerializeField] private Sprite clean;
+    private Collider2D _boxCol2D;
 
 
     void Start()
     {
-
+        _boxCol2D = GetComponent<Collider2D>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StateManeger = other.GetComponent<StateManeger>();//otherのstatemaneを取得
-        if (StateManeger._currentstate == StateManeger.IngameState.StayBath && other.CompareTag("Nezumi"))
-        //ぶつかったオブジェクトのステータスがStayWashであり、ネズミのタグのオブジェクトだった時
+        if (_boxCol2D != null)
         {
+            _boxCol2D.isTrigger = false;//トリガーとオフ
+            Debug.Log("BathArea入れないよ！！");
+        }
 
-            Transform Fukisashi = other.transform.Find("Fukidashi");//otherの子オブジェクトのFukidasiをみつける
-            _SR = Fukisashi.GetComponent<SpriteRenderer>();//吹き出しのスプライトをゲット
-
-
-            Invoke(nameof(WashChangeState), 5f);//5秒遅らせる
-            StateManeger._currentstate = StateManeger.IngameState.Bath;//ステータスをBathに変更
-
+        if (other.CompareTag("Nezumi"))
+        {
+            StateManeger _state = other.GetComponent<StateManeger>();
+            if (_state != null && _state._currentstate == StateManeger.IngameState.StayBath)
+            {
+                StartCoroutine(BathProcess(other.gameObject, _state));
+                _state._currentstate = StateManeger.IngameState.Bath;//ステータスをbathに変更
+            }
         }
 
     }
-    void WashChangeState()//ステータスを変更し、吹き出しイラストも変換する。
+    private IEnumerator BathProcess(GameObject target, StateManeger state)
     {
-        if (clean != null)//バスが指定されているとき
+        yield return new WaitForSeconds(BathTime);//10秒待つ　NEWって何？
+        Transform fukidashi = target.transform.Find("Fukidashi");
+        if (fukidashi != null)
         {
-            _SR.sprite = clean;
-            Debug.Log("スプライトを変更しました");
+            _SR = fukidashi.GetComponent<SpriteRenderer>();//吹き出しのスプライトをゲット
+            if (_SR != null && clean != null)
+            {
+                _SR.sprite = clean;
+                Debug.Log($"{target.name} のスプライトを変更しました");
+            }
+            else
+            {
+                Debug.LogWarning("bathが見つかりません");
+            }
         }
-        else
-        {
-            Debug.LogWarning("cleanが見つかりません");
-        }
-        StateManeger._currentstate = StateManeger.IngameState.StayClean;
+        state._currentstate = StateManeger.IngameState.StayClean;//5秒後ステータスをStayCleanに変更
+        _boxCol2D.isTrigger = true;//トリガーをオン
+        Debug.Log("BathAreaに入れます！");
+
 
     }
 }
