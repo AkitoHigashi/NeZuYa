@@ -3,7 +3,10 @@ using UnityEngine;
 public class ShowerCleaner : MonoBehaviour
 {
     [SerializeField] private string targetTag = "Shower";
-    [SerializeField] private float shrinkSpeed = 0.5f;
+    [SerializeField] private float shrinkSpeed = 0.5f;//縮小速度
+    [SerializeField] private float minScale = 0.001f;
+    [Header("消滅時に生成する水滴")]
+    [SerializeField] GameObject DropToSpawn;
 
     void OnTriggerStay2D(Collider2D other)
     {
@@ -18,12 +21,18 @@ public class ShowerCleaner : MonoBehaviour
 
             transform.localScale = new Vector3(newX, newY, currentScale.z);
 
-            // 完全に0になったらオブジェクトを削除
-            if (newX <= 0f && newY <= 0f)
+            if (newX <= minScale && newY <= minScale)
             {
+                // 消える前に生成
+                if (DropToSpawn != null)
+                {
+                    Instantiate(DropToSpawn, transform.position, Quaternion.identity);
+                }
+            // 目で見えなくなったらオブジェクトを削除
                 Destroy(gameObject);
                 Debug.Log("消えました！！");
             }
+           
         }
     }
 }

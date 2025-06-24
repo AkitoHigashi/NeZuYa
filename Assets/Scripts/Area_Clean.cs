@@ -18,17 +18,23 @@ public class Area_Clean : MonoBehaviour
 
     private SpriteRenderer _SR;
     private Love_meter love_Meter;
+    private Collider2D _boxCol2D;
 
 
 
     private void Start()
     {
+        _boxCol2D = GetComponent<Collider2D>();
         _CleanCamera.SetActive(false);
         _CleanUI.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (_boxCol2D != null)
+        {
+            _boxCol2D.isTrigger = false;//トリガーとオフ
+            Debug.Log("BathArea入れないよ！！");
+        }
         if (other.CompareTag("Nezumi"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
