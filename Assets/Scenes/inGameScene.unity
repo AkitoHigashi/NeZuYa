@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e3013fced570248bda5e2b7d394f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BathTime: 10
   clean: {fileID: 21300000, guid: 97a9cab89f101d34cab5ca69b08ed6d2, type: 3}
 --- !u!50 &251324773
 Rigidbody2D:
@@ -4811,6 +4812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e3013fced570248bda5e2b7d394f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BathTime: 10
   clean: {fileID: 21300000, guid: 97a9cab89f101d34cab5ca69b08ed6d2, type: 3}
 --- !u!50 &1688791489
 Rigidbody2D:
