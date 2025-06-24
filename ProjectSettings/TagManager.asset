@@ -15,6 +15,7 @@ TagManager:
   - Bubble
   - WashArea
   - BathArea
+  - CleanArea
   layers:
   - Default
   - TransparentFX

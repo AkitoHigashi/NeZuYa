@@ -2996,7 +2996,7 @@ GameObject:
   - component: {fileID: 925990389}
   m_Layer: 0
   m_Name: CleanArea
-  m_TagString: Untagged
+  m_TagString: CleanArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3132,6 +3132,7 @@ MonoBehaviour:
   _MainCamera: {fileID: 284627211}
   _CleanCamera: {fileID: 1733662930}
   _CleanUI: {fileID: 162837704}
+  delaytime: 3
 --- !u!1 &1026497987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,7 +5831,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -999
-  m_Sprite: {fileID: -8246911530367533399, guid: 9da4401a1b326eb47b42d235569da443, type: 3}
+  m_Sprite: {fileID: -1184151205257046224, guid: f44e926f52929e049a813f0a401a4865, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

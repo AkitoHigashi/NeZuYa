@@ -84,6 +84,19 @@ public class DragWithMouse2D : MonoBehaviour
             Debug.Log("ロック開始");
             transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
         }
+        if (collision.gameObject.CompareTag("CleanArea") && _StateManeger._currentstate == StateManeger.IngameState.StayClean)
+        //CleanAreaのタグであり、現在のステータスがStayCleanだった時。
+        {
+            if (isDragging == true)
+            {
+                isDragging = false;
+                Debug.Log("ドラッグできないよ");
+            }
+            isLocked = true;
+            Invoke(nameof(LockChanged), 5f);
+            Debug.Log("ロック開始");
+            transform.localPosition = collision.transform.localPosition;
+        }
     }
 
     private void LockChanged()
