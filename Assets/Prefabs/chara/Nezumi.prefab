@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 6532378610029769363}
   - component: {fileID: 283090352897044136}
   - component: {fileID: 4516223623017234918}
-  - component: {fileID: 3758137211222326234}
   - component: {fileID: 3446352800467789055}
   - component: {fileID: 6871703984713104916}
   - component: {fileID: 1258202889857576451}
@@ -240,19 +239,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3758137211222326234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955681215474580982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0da4141a66e3904683366f6ba797882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _PositoinDate: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
 --- !u!70 &3446352800467789055
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -283,7 +269,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

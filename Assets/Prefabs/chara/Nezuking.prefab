@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6922499155802769692}
   - component: {fileID: 708206877271720453}
   - component: {fileID: 9150060979621881105}
-  - component: {fileID: 8253126902167281230}
   - component: {fileID: 2974311666604145889}
   - component: {fileID: 4197752881292365444}
   m_Layer: 6
@@ -168,26 +167,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.7421875, y: 2.3847656}
   m_Direction: 0
---- !u!114 &8253126902167281230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627687600977086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2316141adbe4b4a8ab673cc4050651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharaPosition: {fileID: 11400000, guid: e9bd46c735b27e74aa0a0de6f9c89846, type: 2}
 --- !u!114 &2974311666604145889
 MonoBehaviour:
   m_ObjectHideFlags: 0
