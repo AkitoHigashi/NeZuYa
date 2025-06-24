@@ -6,7 +6,7 @@ public class DragWithMouse2D : MonoBehaviour
     private Vector3 offset;
     private Camera cam;
     [SerializeField] LayerMask _catch = 0;//レイヤーから選択　この場合ネズミ
-    StateManeger StateManeger;
+    StateManeger _StateManeger;
 
 
     public bool isLocked = false;
@@ -14,7 +14,7 @@ public class DragWithMouse2D : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        StateManeger = GetComponent<StateManeger>();
+        _StateManeger = GetComponent<StateManeger>();
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class DragWithMouse2D : MonoBehaviour
             // ドラッグ中の動き
             if (isDragging)
             {
-                Debug.Log("ドラッグ中");
+                //Debug.Log("ドラッグ中");
                 transform.position = mousePos + offset;
             }
 
@@ -58,7 +58,7 @@ public class DragWithMouse2D : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("WashArea") && StateManeger._currentstate == StateManeger.IngameState.StayWash)
+        if (collision.gameObject.CompareTag("WashArea") && _StateManeger._currentstate == StateManeger.IngameState.StayWash)
         //WashAreaのタグであり、現在のステータスがStayWashだった時。
         {
             if (isDragging == true)//ドラッグできるのをできないようにする。
@@ -71,7 +71,7 @@ public class DragWithMouse2D : MonoBehaviour
             Debug.Log("ロック開始");
             transform.localPosition = collision.transform.localPosition;//ぶつかったコライダーの位置に吸われる。
         }
-        if (collision.gameObject.CompareTag("BathArea") && StateManeger._currentstate == StateManeger.IngameState.StayBath)
+        if (collision.gameObject.CompareTag("BathArea") && _StateManeger._currentstate == StateManeger.IngameState.StayBath)
         //BathAreaのタグであり、現在のステータスがStayBathだった時。
         {
             if (isDragging == true)//ドラッグできるのをできないようにする。

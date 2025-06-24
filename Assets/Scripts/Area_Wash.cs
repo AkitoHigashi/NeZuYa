@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class WashArea : MonoBehaviour
+public class Area_Wash : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private DragWithMouse2D DragWithMouse2D;
@@ -9,6 +9,7 @@ public class WashArea : MonoBehaviour
     private StateManeger _StateManeger;
     private SpriteRenderer _SR;
     [SerializeField] private Sprite bath;
+    [SerializeField] private float WashTime = 5f;
 
 
     void Start()
@@ -17,7 +18,8 @@ public class WashArea : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Nezuking") || other.CompareTag("Nezumi"))
+
+        if (other.CompareTag("Nezumi"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayWash)
@@ -27,9 +29,10 @@ public class WashArea : MonoBehaviour
             }
         }
     }
+
     private IEnumerator WashProcess(GameObject target, StateManeger state)
     {
-        yield return new WaitForSeconds(5f);//5秒待つ　NEWって何？
+        yield return new WaitForSeconds(WashTime);//5秒待つ　NEWって何？
 
         Transform fukidashi = target.transform.Find("Fukidashi");
         if (fukidashi != null)
@@ -52,7 +55,6 @@ public class WashArea : MonoBehaviour
             love_Meter.AddLove(0.2f);
             Debug.Log($"{target.name} のラブが2増えたよ！");
         }
-
         state._currentstate = StateManeger.IngameState.StayBath;//5秒後ステータスをStayBathに変更
 
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class BathArea : MonoBehaviour
+public class Area_Bath : MonoBehaviour
 {
     private DragWithMouse2D DragWithMouse2D;
     private StateManeger StateManeger;
