@@ -8,8 +8,10 @@ public class Area_Clean : MonoBehaviour
     [SerializeField] GameObject _MainCamera;
     [Header("清掃のカメラ")]
     [SerializeField] GameObject _CleanCamera;
-    [Header("清掃パートのUI")]
+    [Header("清掃パートのスライドUI")]
     [SerializeField] GameObject _CleanUI;
+    [Header("清掃パートの完成UI")]
+    [SerializeField] GameObject _CleanFinishUI;
 
     [Header("チェンジのディレイの時間")]
     [SerializeField] private float delaytime = 3f;
@@ -27,6 +29,7 @@ public class Area_Clean : MonoBehaviour
         _boxCol2D = GetComponent<Collider2D>();
         _CleanCamera.SetActive(false);
         _CleanUI.SetActive(false);
+        _CleanFinishUI.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -61,7 +64,7 @@ public class Area_Clean : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("bathが見つかりません");
+                Debug.LogWarning("retunが見つかりません");
             }
         }
 
@@ -80,6 +83,7 @@ public class Area_Clean : MonoBehaviour
         _MainCamera.SetActive(false);
         _CleanCamera.SetActive(true);
         _CleanUI.SetActive(true);
+        _CleanFinishUI.SetActive(true);
     }
 
 }
