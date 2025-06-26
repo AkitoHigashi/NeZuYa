@@ -31,6 +31,7 @@ public class Bubble_Spawn : MonoBehaviour
                 {
                     // プレハブを小さなスケールで生成
                     GameObject bubble = Instantiate(_bubblePrefab, transform.position, Quaternion.identity);
+                    AudioManager.Instance.PlaySE("Soap");
                     bubble.transform.localScale = Vector3.zero;
 
                     // DOTweenで拡大アニメーションを実行

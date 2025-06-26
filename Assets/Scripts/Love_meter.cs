@@ -10,7 +10,7 @@ public class Love_meter : MonoBehaviour
 
     public float duration = 0.5f;
 
-    public float debugAddLoveRate = 0.2f;
+    public float debugAddLoveRate = 0.25f;
     public float currentRate = 0f;
     private void Start()
     {

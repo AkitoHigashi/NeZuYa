@@ -11,6 +11,7 @@ public class Dirt : MonoBehaviour
         if (other.CompareTag("Brush"))
         {
             currentRubs++;
+            AudioManager.Instance.PlaySE("Brush");//‰¹Ä¶
             Debug.Log($"‚±‚·‚ç‚ê‚½I¡‚Ì‰ñ”: {currentRubs}");
 
             // ‘å‚«‚³‚ğ­‚µ¬‚³‚­

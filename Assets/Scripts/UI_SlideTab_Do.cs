@@ -21,11 +21,13 @@ public class UI_SlideTab_Do : MonoBehaviour
         if (!isOpen)
         {
             transform.DOLocalMove(new Vector2(966f, 0), openmovespeed);
+            AudioManager.Instance.PlaySE("PushButton");
             isOpen = true;
         }
         else
         {
             transform.DOLocalMove(new Vector2(1236f, 0), openmovespeed);
+            AudioManager.Instance.PlaySE("PushButton");
             isOpen = false;
         }
         

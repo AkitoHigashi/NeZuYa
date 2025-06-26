@@ -4,15 +4,17 @@ using UnityEngine.SceneManagement;
 public class Scenes_change : MonoBehaviour
 {
     private string inGameSceneName = "inGameScene"; // メインシーン名
-    private string cleanSceneName = "CleanUpScene"; // サブシーン名
+    private string titleSceneName = "Title"; // サブシーン名
 
-    // ① clean シーンを Additive モードでロード
-    public void LoadCleanScene()
+    
+    public void LoadTitleScene()
     {
-        SceneManager.LoadScene(cleanSceneName);
+        AudioManager.Instance.PlaySE("PushButton");
+        SceneManager.LoadScene(titleSceneName);
     }
     public void LoadinGameScene()
     {
+        AudioManager.Instance.PlaySE("PushButton");
         SceneManager.LoadScene(inGameSceneName);
     }
 

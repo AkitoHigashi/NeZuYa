@@ -34,6 +34,7 @@ public class Area_Wash : MonoBehaviour
                     _boxCol2D.isTrigger = false;//トリガーとオフ
                     Debug.Log("WashArea入れないよ！！");
                 }
+                AudioManager.Instance.PlaySE("Wash");//音再生
                 StartCoroutine(WashProcess(other.gameObject, _state));
                 _state._currentstate = StateManeger.IngameState.Wash;//ステータスをWashに変更
             }

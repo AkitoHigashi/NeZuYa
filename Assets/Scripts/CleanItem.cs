@@ -8,15 +8,18 @@ public class CleanItem : MonoBehaviour
     private Camera cam;
     [SerializeField] LayerMask _item = 0;
     private bool isStop = false;
+    
     void Start()
     {
         cam = Camera.main;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         ItemMove();
+       
     }
     void ItemMove()
     {
@@ -31,6 +34,7 @@ public class CleanItem : MonoBehaviour
                 {
                     isDragging = true;
                     offset = this.transform.position - mousePos;
+                    
                 }
 
 
@@ -38,12 +42,14 @@ public class CleanItem : MonoBehaviour
             if (Input.GetMouseButtonUp(0))//左クリック離した時
             {
                 isDragging = false;
+               
             }
             if (isDragging)
             {
                 transform.position = mousePos + offset;
                 //Debug.Log("アイテムドラッグ中");
             }
+
         }
     }
 }

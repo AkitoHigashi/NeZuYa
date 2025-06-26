@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil;
 using UnityEngine;
 
 public class Generator_chara : MonoBehaviour
@@ -18,7 +19,7 @@ public class Generator_chara : MonoBehaviour
         characterList.AddRange(FirstCharacters);
 
         // ゲーム開始時に1体ランダムで生成してみる
-        SpawnRandomCharacter();
+        Invoke(nameof(SpawnRandomCharacter),1.5f);
     }
 
     // キャラクターリストからランダムに1体選んで生成するメソッド
@@ -45,6 +46,7 @@ public class Generator_chara : MonoBehaviour
         GameObject selected = availableCharacters[index];
         // 生成
         GameObject clone = Instantiate(selected, _SpawnPoint.position, Quaternion.identity);
+        AudioManager.Instance.PlaySE("Appear");//音再生
         spawnedTags.Add(clone.tag);//出現済みリストに追加。
         Debug.Log("出現キャラ：" + selected.name);
 

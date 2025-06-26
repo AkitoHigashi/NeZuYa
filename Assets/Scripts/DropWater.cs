@@ -8,10 +8,17 @@ public class DropWater : MonoBehaviour
 
     private SpriteRenderer _SR;
     private CleanManeger _CleanManeger;
+    private Clean_Finish _CF;
+
 
 
     private void Awake()
     {
+        _CF = FindFirstObjectByType<Clean_Finish>();
+        if (_CF != null)
+        {
+            Debug.LogWarning("Clean_Finish");
+        }
         // シーン内のBodyCleanerコンポーネントを探す（1つだけならFindObjectOfTypeでOK）
         _CleanManeger = FindFirstObjectByType<CleanManeger>();
         if (_CleanManeger == null)
@@ -32,6 +39,7 @@ public class DropWater : MonoBehaviour
             if (_CleanManeger != null && _CleanManeger.AllCleanBubble())
             {
                 currentRubs++;
+                AudioManager.Instance.PlaySE("Towel");//音再生
                 Debug.Log($"拭かれた！今の回数: {currentRubs}");
 
                 // アルファ値下げる。
@@ -42,8 +50,10 @@ public class DropWater : MonoBehaviour
 
                 if (currentRubs >= rubsToDisappear)
                 {
-                    Debug.Log("水滴が消えた！");
+                    _CF.PossiblePush = true;//ボタンを押せるように
+                    Debug.Log("ボタン押せる");
                     Destroy(gameObject);
+                    Debug.Log("水滴が消えた！");
                 }
 
             }

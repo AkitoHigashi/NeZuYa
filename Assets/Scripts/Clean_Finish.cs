@@ -6,16 +6,19 @@ public class Clean_Finish : MonoBehaviour
 {
     [Header("メインのカメラ")]
     [SerializeField] GameObject _MainCamera;
+    [SerializeField] GameObject _HeitenButton;
     [Header("清掃のカメラ")]
     [SerializeField] GameObject _CleanCamera;
     [Header("清掃パートのスライドUI")]
     [SerializeField] GameObject _CleanUI;
     [Header("清掃パートの完成UI")]
     [SerializeField] GameObject _CleanFinishUI;
+    [SerializeField] GameObject _Love;
     [Header("退店時の吹き出し")]
     [SerializeField] private Sprite retun;
 
-
+    [Header("Area_cleanのコライダー")]
+    [SerializeField] private Collider2D _ACCd;
     [Header("Area_cleanのスクリプト")]
     [SerializeField] private Area_Clean _AC;
     [Header("キャラ生成のスクリプト")]
@@ -25,6 +28,8 @@ public class Clean_Finish : MonoBehaviour
     private Love_meter love_Meter;
     private SpriteRenderer _SR;
 
+    public bool PossiblePush = false;
+
 
     //[Header("チェンジのディレイの時間")]
     //[SerializeField] private float delaytime = 3f;
@@ -32,32 +37,41 @@ public class Clean_Finish : MonoBehaviour
 
     public void GoInGame()
     {
-        if (CleanManeger != null)
+        if (PossiblePush)
         {
-            if (CleanManeger.AllCleanWater() && CleanManeger.AllCleanBubble() && CleanManeger.AllCleanDirt())
-            {
-                GameObject cleanChara = GameObject.FindWithTag("CleanChara");//CleanCharaを削除
-                if (cleanChara != null)
-                {
-                    Debug.Log("CleanChara を見つけた: " + cleanChara.name);
-                    Destroy(cleanChara); // 例：削除
-                }
-                _MainCamera.SetActive(true);
-                _CleanCamera.SetActive(false);
-                _CleanUI.SetActive(false);
-                _CleanFinishUI.SetActive(false);
-                StartCoroutine(Change(_target.gameObject));//2
-                StartCoroutine(ReturnMove(_target.gameObject));//2
 
+            if (CleanManeger != null)
+            {
+                if (CleanManeger.AllCleanWater() && CleanManeger.AllCleanBubble() && CleanManeger.AllCleanDirt())
+                {
+                    GameObject cleanChara = GameObject.FindWithTag("CleanChara");//CleanCharaを削除
+                    if (cleanChara != null)
+                    {
+                        Debug.Log("CleanChara を見つけた: " + cleanChara.name);
+                        Destroy(cleanChara); // 例：削除
+                    }
+                    AudioManager.Instance.PlaySE("PushButton");
+                    _MainCamera.SetActive(true);
+                    _HeitenButton.SetActive(true);
+                    _Love.SetActive(false);
+                    _CleanCamera.SetActive(false);
+                    _CleanUI.SetActive(false);
+                    _CleanFinishUI.SetActive(false);
+                    _ACCd.isTrigger = true;//トリガーをオン
+                    Debug.Log("BathAreaに入れます！");
+                    StartCoroutine(Change(_target.gameObject));//2
+                    StartCoroutine(ReturnMove(_target.gameObject));//2
+
+                }
+                else
+                {
+                    Debug.Log("身体の汚れがきれいになっていません");
+                }
             }
             else
             {
-                Debug.Log("身体の汚れがきれいになっていません");
+                Debug.Log("CleanManegerを取得できません");
             }
-        }
-        else
-        {
-            Debug.Log("CleanManegerを取得できません");
         }
     }
     public void SetTarget(GameObject target)
@@ -84,9 +98,10 @@ public class Clean_Finish : MonoBehaviour
             love_Meter = _target.GetComponentInChildren<Love_meter>();//そのネズミのラブメータースクリプトをげっちゅ
             if (love_Meter != null)
             {
-                love_Meter.AddLove(0.2f);
-                Debug.Log($"{_target.name} のラブが2増えたよ！");
+                love_Meter.AddLove(0.34f);
+                Debug.Log($"{_target.name} のラブが3増えたよ！");
             }
+            PossiblePush = false;
             _state._currentstate = StateManeger.IngameState.Return;
 
         }

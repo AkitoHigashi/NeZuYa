@@ -33,6 +33,7 @@ public class Area_Bath : MonoBehaviour
                     _boxCol2D.isTrigger = false;//トリガーとオフ
                     Debug.Log("BathArea入れないよ！！");
                 }
+                AudioManager.Instance.PlaySE("Bath");//音再生
                 StartCoroutine(BathProcess(other.gameObject, _state));
                 _state._currentstate = StateManeger.IngameState.Bath;//ステータスをbathに変更
                 _GC.SpawnRandomCharacter();
