@@ -11,6 +11,14 @@ public class Area_Clean : MonoBehaviour
     [SerializeField] GameObject _CleanUI;
     [Header("清掃パートの完成UI")]
     [SerializeField] GameObject _CleanFinishUI;
+    [Header("クリーンモードで生成するキャラ")]
+    [SerializeField] private GameObject Nezumi_C_Prefab;
+    [SerializeField] private GameObject Nezuking_C_Prefab;
+    [SerializeField] private GameObject Women_C_Prefab;
+    [SerializeField] private Transform _SetPos;
+
+    private GameObject prefabToSpawn;
+   
 
     [Header("チェンジのディレイの時間")]
     [SerializeField] private float delaytime = 3f;
@@ -45,6 +53,26 @@ public class Area_Clean : MonoBehaviour
                 }
                 _clean_Finish.SetTarget(other.gameObject);
                 Invoke(nameof(GoClean), delaytime);
+
+                
+                if (other.CompareTag("Nezumi"))
+                {
+                    prefabToSpawn = Nezumi_C_Prefab;
+                }
+                else if (other.CompareTag("Nezuking"))
+                {
+                    prefabToSpawn = Nezuking_C_Prefab;
+                }
+                else if (other.CompareTag("Women"))
+                {
+                    prefabToSpawn = Women_C_Prefab;
+                }
+
+                if (prefabToSpawn != null)
+                {
+                    Instantiate(prefabToSpawn, _SetPos.position, Quaternion.identity);
+                    Debug.Log($"{other.tag} に対応したオブジェクトを生成しました");
+                }
 
             }
 

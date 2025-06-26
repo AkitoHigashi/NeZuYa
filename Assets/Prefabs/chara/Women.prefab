@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 3837819724931935759}
+  _loveChara: {fileID: 11400000, guid: 238e4e9af779ed448b81d8a3734a56d6, type: 2}
   duration: 0.5
   debugAddLoveRate: 0.2
   currentRate: 0

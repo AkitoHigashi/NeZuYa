@@ -15,6 +15,9 @@ public class Clean_Finish : MonoBehaviour
     [Header("退店時の吹き出し")]
     [SerializeField] private Sprite retun;
 
+
+    [Header("Area_cleanのスクリプト")]
+    [SerializeField] private Area_Clean _AC;
     [Header("キャラ生成のスクリプト")]
     [SerializeField] private Generator_chara _GC;
     [SerializeField] private CleanManeger CleanManeger;
@@ -33,13 +36,19 @@ public class Clean_Finish : MonoBehaviour
         {
             if (CleanManeger.AllCleanWater() && CleanManeger.AllCleanBubble() && CleanManeger.AllCleanDirt())
             {
+                GameObject cleanChara = GameObject.FindWithTag("CleanChara");//CleanCharaを削除
+                if (cleanChara != null)
+                {
+                    Debug.Log("CleanChara を見つけた: " + cleanChara.name);
+                    Destroy(cleanChara); // 例：削除
+                }
                 _MainCamera.SetActive(true);
                 _CleanCamera.SetActive(false);
                 _CleanUI.SetActive(false);
                 _CleanFinishUI.SetActive(false);
                 StartCoroutine(Change(_target.gameObject));//2
                 StartCoroutine(ReturnMove(_target.gameObject));//2
-               
+
             }
             else
             {
@@ -96,7 +105,7 @@ public class Clean_Finish : MonoBehaviour
                          });
 
 
-}
+    }
 }
 
 

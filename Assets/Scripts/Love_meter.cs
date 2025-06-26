@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Love_meter : MonoBehaviour
 {
     [SerializeField] private Image healthImage;
+    [SerializeField] private LoveChara _loveChara;
+    
 
     public float duration = 0.5f;
 
@@ -12,7 +14,8 @@ public class Love_meter : MonoBehaviour
     public float currentRate = 0f;
     private void Start()
     {
-        SetGauge(0f);//スタート同時にゲージを0にする。
+       currentRate = Mathf.Clamp01(_loveChara.savedLoveRate); // 復元
+        SetGauge(currentRate);//スタート同時にゲージを今のゲージにする。
     }
     private void Update()
     {
@@ -22,15 +25,18 @@ public class Love_meter : MonoBehaviour
         }
     }
 
-    public void SetGauge(float targetrate)　//ゲージをセットする変数。
+    public void SetGauge(float targetrate) // ゲージをセットする関数。
     {
         healthImage.DOFillAmount(targetrate, duration);//Dotweenでゲージを上げる。
-        
+
         currentRate = targetrate;
-        
+
+        // 状態を保存
+        _loveChara.savedLoveRate = currentRate;
     }
     public void AddLove(float rate)
     {
-        SetGauge(currentRate + rate);//現在のゲージに足すのを送る。
+        float newRate = Mathf.Min(currentRate + rate, 1f);//1以上にならない
+        SetGauge(newRate);//現在のゲージに足すのを送る。
     }
 }

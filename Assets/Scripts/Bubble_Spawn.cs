@@ -4,12 +4,22 @@ using UnityEngine;
 public class Bubble_Spawn : MonoBehaviour
 {
     [Header("汚れがあるが判別するスクリプト")]
-    [SerializeField] private CleanManeger _CM;
+     private CleanManeger _CM;
     [Header("生成する泡のプレハブ")]
     [SerializeField] GameObject _bubblePrefab;
     [Header("生成のスケールにかける時間")]
     [SerializeField] float scaleDuration = 0.3f; // 拡大にかける時間
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        // シーン内のBodyCleanerコンポーネントを探す（1つだけならFindObjectOfTypeでOK）
+        _CM = FindFirstObjectByType<CleanManeger>();
+        if (_CM == null)
+        {
+            Debug.LogWarning("BodyCleanerがシーンに存在しません！");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Soap"))
