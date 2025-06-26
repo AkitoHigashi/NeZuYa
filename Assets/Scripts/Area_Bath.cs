@@ -12,6 +12,7 @@ public class Area_Bath : MonoBehaviour
     private StateManeger StateManeger;
     private SpriteRenderer _SR;
     private Collider2D _boxCol2D;
+    [SerializeField] private Generator_chara _GC;
 
 
     void Start()
@@ -21,11 +22,12 @@ public class Area_Bath : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Nezumi"))
+        if (other.CompareTag("Nezumi") || other.CompareTag("Nezuking") || other.CompareTag("Women"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayBath)
             {
+                //_GC.SpawnRandomCharacter();
                 if (_boxCol2D != null)
                 {
                     _boxCol2D.isTrigger = false;//トリガーとオフ
@@ -33,6 +35,7 @@ public class Area_Bath : MonoBehaviour
                 }
                 StartCoroutine(BathProcess(other.gameObject, _state));
                 _state._currentstate = StateManeger.IngameState.Bath;//ステータスをbathに変更
+                _GC.SpawnRandomCharacter();
             }
         }
 

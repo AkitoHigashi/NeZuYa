@@ -18,6 +18,8 @@ TagManager:
   - CleanArea
   - WaterDrop
   - Dirt
+  - Nezuking
+  - Women
   layers:
   - Default
   - TransparentFX

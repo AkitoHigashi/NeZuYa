@@ -20,6 +20,7 @@ public class Area_Clean : MonoBehaviour
     private SpriteRenderer _SR;
     private Love_meter love_Meter;
     private Collider2D _boxCol2D;
+    [SerializeField] private Clean_Finish _clean_Finish;
 
 
 
@@ -32,7 +33,7 @@ public class Area_Clean : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Nezumi"))
+        if (other.CompareTag("Nezumi") || other.CompareTag("Nezuking") || other.CompareTag("Women"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayClean)
@@ -42,8 +43,11 @@ public class Area_Clean : MonoBehaviour
                     _boxCol2D.isTrigger = false;//トリガーとオフ
                     Debug.Log("CleanArea入れないよ！！");
                 }
+                _clean_Finish.SetTarget(other.gameObject);
                 Invoke(nameof(GoClean), delaytime);
+
             }
+
         }
     }
 
@@ -90,6 +94,8 @@ public class Area_Clean : MonoBehaviour
         _CleanCamera.SetActive(true);
         _CleanUI.SetActive(true);
         _CleanFinishUI.SetActive(true);
+        _boxCol2D.isTrigger = true;//トリガーをオン
+        Debug.Log("BathAreaに入れます！");
     }
 
 }

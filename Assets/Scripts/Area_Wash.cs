@@ -24,7 +24,7 @@ public class Area_Wash : MonoBehaviour
     {
 
 
-        if (other.CompareTag("Nezumi"))
+        if (other.CompareTag("Nezumi") || other.CompareTag("Nezuking") || other.CompareTag("Women"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayWash)
