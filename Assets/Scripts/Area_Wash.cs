@@ -23,17 +23,17 @@ public class Area_Wash : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (_boxCol2D != null)
-        {
-            _boxCol2D.isTrigger = false;//トリガーとオフ
-            Debug.Log("WashArea入れないよ！！");
-        }
 
         if (other.CompareTag("Nezumi"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayWash)
             {
+                if (_boxCol2D != null)
+                {
+                    _boxCol2D.isTrigger = false;//トリガーとオフ
+                    Debug.Log("WashArea入れないよ！！");
+                }
                 StartCoroutine(WashProcess(other.gameObject, _state));
                 _state._currentstate = StateManeger.IngameState.Wash;//ステータスをWashに変更
             }

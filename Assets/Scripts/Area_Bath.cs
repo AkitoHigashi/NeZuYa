@@ -20,17 +20,17 @@ public class Area_Bath : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_boxCol2D != null)
-        {
-            _boxCol2D.isTrigger = false;//トリガーとオフ
-            Debug.Log("BathArea入れないよ！！");
-        }
 
         if (other.CompareTag("Nezumi"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayBath)
             {
+                if (_boxCol2D != null)
+                {
+                    _boxCol2D.isTrigger = false;//トリガーとオフ
+                    Debug.Log("BathArea入れないよ！！");
+                }
                 StartCoroutine(BathProcess(other.gameObject, _state));
                 _state._currentstate = StateManeger.IngameState.Bath;//ステータスをbathに変更
             }

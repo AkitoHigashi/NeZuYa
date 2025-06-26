@@ -32,16 +32,16 @@ public class Area_Clean : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_boxCol2D != null)
-        {
-            _boxCol2D.isTrigger = false;//トリガーとオフ
-            Debug.Log("BathArea入れないよ！！");
-        }
         if (other.CompareTag("Nezumi"))
         {
             StateManeger _state = other.GetComponent<StateManeger>();
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayClean)
             {
+                if (_boxCol2D != null)
+                {
+                    _boxCol2D.isTrigger = false;//トリガーとオフ
+                    Debug.Log("CleanArea入れないよ！！");
+                }
                 Invoke(nameof(GoClean), delaytime);
                 StartCoroutine(CleanProcess(other.gameObject, _state));
             }
