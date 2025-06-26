@@ -43,14 +43,13 @@ public class Area_Clean : MonoBehaviour
                     Debug.Log("CleanArea入れないよ！！");
                 }
                 Invoke(nameof(GoClean), delaytime);
-                StartCoroutine(CleanProcess(other.gameObject, _state));
             }
         }
     }
 
     private IEnumerator CleanProcess(GameObject target, StateManeger state)
     {
-        yield return new WaitForSeconds(delaytime);
+        yield return new WaitForSeconds(0f);
 
         Transform fukidashi = target.transform.Find("Fukidashi");
         if (fukidashi != null)
@@ -76,6 +75,14 @@ public class Area_Clean : MonoBehaviour
         state._currentstate = StateManeger.IngameState.Return;//5秒後ステータスをStayBathに変更
         _boxCol2D.isTrigger = true;
 
+    }
+    public void EndCleaning(GameObject target)
+    {
+        StateManeger state = target.GetComponent<StateManeger>();
+        if (state != null)
+        {
+            StartCoroutine(CleanProcess(target, state));
+        }
     }
     void GoClean()
     {

@@ -12,10 +12,11 @@ public class Clean_Finish : MonoBehaviour
     [SerializeField] GameObject _CleanFinishUI;
 
     [SerializeField]private CleanManeger CleanManeger;
+    [SerializeField]private Area_Clean area_Clean;
 
     //[Header("チェンジのディレイの時間")]
     //[SerializeField] private float delaytime = 3f;
-    
+
 
     public void GoInGame()
     {
