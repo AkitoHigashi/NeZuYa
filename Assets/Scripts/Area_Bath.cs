@@ -1,14 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR;
-using static UnityEngine.GraphicsBuffer;
 
 public class Area_Bath : MonoBehaviour
 {
-    [SerializeField] private float BathTime = 10f;
+    [Header("変更する際はDWM2DのInvoke時間も変更して")]
+    [SerializeField] private float BathTime = 5f;
     [Header("清掃要求の吹き出し")]
     [SerializeField] private Sprite clean;
-    
+
     private DragWithMouse2D DragWithMouse2D;
     private StateManeger StateManeger;
     private SpriteRenderer _SR;
@@ -40,7 +39,7 @@ public class Area_Bath : MonoBehaviour
     }
     private IEnumerator BathProcess(GameObject target, StateManeger state)
     {
-        yield return new WaitForSeconds(BathTime);//10秒待つ　NEWって何？
+        yield return new WaitForSeconds(BathTime);//指定秒数待つ　NEWって何？
         Transform fukidashi = target.transform.Find("Fukidashi");
         if (fukidashi != null)
         {

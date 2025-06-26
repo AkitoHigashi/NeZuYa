@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Dirt : MonoBehaviour
@@ -14,7 +15,9 @@ public class Dirt : MonoBehaviour
 
             // 大きさを少し小さく
             float scaleFactor = Mathf.Lerp(1f, 0f, (float)currentRubs / rubsToDisappear);
-            transform.localScale = Vector3.one * scaleFactor;
+            // DOTweenでスケールをアニメーション（0.1秒かけて）
+            transform.DOScale(Vector3.one * scaleFactor, 0.1f);
+            
 
             if (currentRubs >= rubsToDisappear)
             {

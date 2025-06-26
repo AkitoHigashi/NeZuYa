@@ -11,6 +11,7 @@ public class Area_Wash : MonoBehaviour
     private BoxCollider2D _boxCol2D;
 
     [SerializeField] private Sprite bath;
+    [Header("•ÏX‚·‚éÛ‚ÍDWM2D‚ÌInvokeŠÔ‚à•ÏX‚µ‚Ä")]
     [SerializeField] private float WashTime = 5f;
 
 

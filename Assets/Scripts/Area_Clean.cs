@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Area_Clean : MonoBehaviour
@@ -44,12 +43,12 @@ public class Area_Clean : MonoBehaviour
             if (_state != null && _state._currentstate == StateManeger.IngameState.StayClean)
             {
                 Invoke(nameof(GoClean), delaytime);
-                StartCoroutine(CleanProcess(other.gameObject,_state));
+                StartCoroutine(CleanProcess(other.gameObject, _state));
             }
         }
     }
 
-    private IEnumerator CleanProcess(GameObject target,StateManeger state)
+    private IEnumerator CleanProcess(GameObject target, StateManeger state)
     {
         yield return new WaitForSeconds(delaytime);
 
@@ -75,7 +74,7 @@ public class Area_Clean : MonoBehaviour
             Debug.Log($"{target.name} のラブが2増えたよ！");
         }
         state._currentstate = StateManeger.IngameState.Return;//5秒後ステータスをStayBathに変更
-
+        _boxCol2D.isTrigger = true;
 
     }
     void GoClean()

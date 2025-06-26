@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a5fb585fb0f1b4c8f3bd64e0555152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rubsToDisappear: 10
+  rubsToDisappear: 16
