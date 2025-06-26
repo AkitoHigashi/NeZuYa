@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Bubble_Spawn : MonoBehaviour
 {
+    [Header("汚れがあるが判別するスクリプト")]
+    [SerializeField] private CleanManeger _CM;
     [Header("生成する泡のプレハブ")]
     [SerializeField] GameObject _bubblePrefab;
     [Header("生成のスケールにかける時間")]
@@ -10,20 +12,29 @@ public class Bubble_Spawn : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("BBpos"))
+        if (other.gameObject.CompareTag("Soap"))
         {
-            if (_bubblePrefab != null)
+            if (_CM != null && _CM.AllCleanDirt())//_CMが入っていて汚れがない時
             {
-                // プレハブを小さなスケールで生成
-                GameObject bubble = Instantiate(_bubblePrefab, other.transform.position, Quaternion.identity);
-                bubble.transform.localScale = Vector3.zero;
 
-                // DOTweenで拡大アニメーションを実行
-                bubble.transform.DOScale(Vector3.one, scaleDuration).SetEase(Ease.OutBack);
+                if (_bubblePrefab != null)
+                {
+                    // プレハブを小さなスケールで生成
+                    GameObject bubble = Instantiate(_bubblePrefab, transform.position, Quaternion.identity);
+                    bubble.transform.localScale = Vector3.zero;
+
+                    // DOTweenで拡大アニメーションを実行
+                    bubble.transform.DOScale(Vector3.one, scaleDuration).SetEase(Ease.OutBack);
+                }
+                else
+                {
+                    Debug.LogWarning("プレハブが設定されていません");
+                }
+
             }
             else
             {
-                Debug.LogWarning("プレハブが設定されていません");
+                Debug.Log("まだ汚れが残っているので泡は出せません！");
             }
         }
 ;

@@ -17,6 +17,7 @@ TagManager:
   - BathArea
   - CleanArea
   - WaterDrop
+  - Dirt
   layers:
   - Default
   - TransparentFX
